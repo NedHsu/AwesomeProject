@@ -10,7 +10,8 @@ import {
   StyleSheet,
   Text,
   TextInput,
-  View
+  View,
+  ScrollView
 } from 'react-native';
 
 export default class AwesomeProject extends Component {
@@ -20,19 +21,14 @@ export default class AwesomeProject extends Component {
   }
   render() {
     return (
-      <View style={styles.container}>
-        <TextInput
-          style={{height: 40, width: '100%'}}
-          placeholder="Type here to translate!"
-          onChangeText={(text) => this.setState({text})}
-        />
-        <Text style={{padding: 10, fontSize: 42}}>
-          {this.state.text.split(' ').map((word) => word && '🍕').join(' ')}
-        </Text>
-        <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
-        <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
-        <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
-      </View>
+      <ScrollView>
+        <Text style={{fontSize:96}}>Scroll me plz</Text>
+          <Text style={{fontSize:96}}>If you like</Text>
+          <Text style={{fontSize:96}}>Scrolling down</Text>
+          <Text style={{fontSize:96}}>What's the best</Text>
+          <Text style={{fontSize:96}}>Framework around?</Text>
+      <Text style={{fontSize:80}}>React Native</Text>
+      </ScrollView>
     );
   }
 }
