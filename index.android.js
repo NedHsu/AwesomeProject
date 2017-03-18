@@ -12,6 +12,24 @@ import {
   View
 } from 'react-native';
 
+class Blink extends Component{
+  constructor(props) {
+      super(props);
+      this.state = {showText: true};
+      // Toggle the state every second
+      setInterval(() => {
+        this.setState({ showText: !this.state.showText });
+      }, 1000);
+  }
+
+  render() {
+    let display = this.state.showText ? this.props.text : ' ';
+      return (
+        <Text>{display}</Text>
+      );
+  }
+}
+
 export default class AwesomeProject extends Component {
   render() {
     return (
@@ -26,7 +44,8 @@ export default class AwesomeProject extends Component {
           Double tap R on your keyboard to reload,{'\n'}
           Shake or press menu button for dev menu
         </Text>
-        <Text>Hello world!</Text>
+        <Text style={styles.bigblue}>Hello world!</Text>
+        <Blink text='tttt' />
       </View>
     );
   }
@@ -48,6 +67,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
+  },
+  bigblue: {
+    color: 'blue',
+    fontWeight: 'bold',
+    fontSize: 30,
+  },
+  red: {
+    color: 'red',
   },
 });
 
