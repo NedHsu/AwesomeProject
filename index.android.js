@@ -46,6 +46,9 @@ export default class AwesomeProject extends Component {
         </Text>
         <Text style={styles.bigblue}>Hello world!</Text>
         <Blink text='tttt' />
+        <View style={{width: '100%', height: 50, backgroundColor: 'powderblue', flex: 1}} />
+        <View style={{width: 100, height: 100, backgroundColor: 'skyblue', flex: 2}} />
+        <View style={{width: 150, height: 150, backgroundColor: 'steelblue', flex: 3}} />
       </View>
     );
   }
