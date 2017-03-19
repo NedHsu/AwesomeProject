@@ -11,24 +11,39 @@ import {
   Text,
   TextInput,
   View,
-  ScrollView
+  ListView
 } from 'react-native';
+
+import Main from './src/components/Main';
+
+import * as firebase from 'firebase';
+// 將 Firebase 的 config 值引入
+import { firebaseConfig } from './src/constants/configs/config';
+
+// Initialize Firebase
+const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 export default class AwesomeProject extends Component {
   constructor(props) {
     super(props);
-    this.state = {text: ''};
+
+    const rootRef = firebaseApp.database().ref();
+    const itemRef = rootRef.child('items');
+    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    this.state = {
+      dataSource: ds.cloneWithRows([
+        'John', 'Joel', 'James', 'Jimmy', 'Jackson', 'Jillian', 'Julie', 'Devin',
+        'John', 'Joel', 'James', 'Jimmy', 'Jackson', 'Jillian', 'Julie', 'Devin',
+        'John', 'Joel', 'James', 'Jimmy', 'Jackson', 'Jillian', 'Julie', 'Devin',
+        'John', 'Joel', 'James', 'Jimmy', 'Jackson', 'Jillian', 'Julie', 'Devin',
+        'John', 'Joel', 'James', 'Jimmy', 'Jackson', 'Jillian', 'Julie', 'Devin'
+      ])
+    };
   }
   render() {
     return (
-      <ScrollView>
-        <Text style={{fontSize:96}}>Scroll me plz</Text>
-          <Text style={{fontSize:96}}>If you like</Text>
-          <Text style={{fontSize:96}}>Scrolling down</Text>
-          <Text style={{fontSize:96}}>What's the best</Text>
-          <Text style={{fontSize:96}}>Framework around?</Text>
-      <Text style={{fontSize:80}}>React Native</Text>
-      </ScrollView>
+      <Main />
+      
     );
   }
 }
