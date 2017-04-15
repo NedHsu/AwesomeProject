@@ -9,14 +9,19 @@ import {
   Navigator,
 } from 'react-native';
 
+import Toolbar from '../Toolbar';
+
 class Main extends Component {
   render() {
     return (
-      <View>
-      	<Navigator
+      <View style={styles.container}>
+        <Toolbar></Toolbar>
+      	<Navigator style={styles.navigator}
       	  initialRoute={{name: 'Routes', index: 0}}
       	  renderScene={(route, navigator) => {
-      	    
+      	    <Text style={styles.link}>
+      	      Routes
+      	    </Text>
       	  }}
       	/>
       	<Text>Main</Text>
@@ -26,7 +31,17 @@ class Main extends Component {
 }
 
 const styles = StyleSheet.create({
+  container:{
+    height: '100%'
+  },
+	link: {
 
+	},
+	navigator: {
+		height: 100,
+		width: '100%',
+		backgroundColor: 'powderblue'
+	}
 });
 
 
